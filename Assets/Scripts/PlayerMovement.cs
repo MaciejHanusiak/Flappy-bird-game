@@ -5,20 +5,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
 
     Rigidbody2D rb;
-    bool isJumping = false;
+
     float jumpForce = 5f;
-    
-    private void Awake()
+
+    private void Awake() => rb = GetComponent<Rigidbody2D>();
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
     }
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            isJumping = true;
-        }
+        if (Input.GetButtonDown("Jump")) Jump();
     }
+
+    void Jump() => rb.linearVelocity += new Vector2(0f, jumpForce);
+    
 
     private void FixedUpdate()
     {
@@ -26,10 +27,5 @@ public class PlayerMovement : MonoBehaviour
         transform.position += moveSpeed * Time.deltaTime * Vector3.right;
 
 
-        if (isJumping)
-        {
-            rb.linearVelocity += Vector2.up * jumpForce;
-            isJumping = false;
-        }
     }
 }
