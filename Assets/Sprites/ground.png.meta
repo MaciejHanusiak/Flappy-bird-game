@@ -103,12 +103,12 @@ TextureImporter:
       name: ground_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 510
-        height: 173
+        x: 5
+        y: 4
+        width: 503
+        height: 165
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2fa26bcdea8b9b449830933bac22e0b7
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ground_0: -3878557786174838139
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

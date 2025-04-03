@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float moveSpeed;
 
-    // Update is called once per frame
+    Rigidbody2D rb;
+    bool isJumping = false;
+    float jumpForce = 5f;
+    
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            isJumping = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+
+        transform.position += moveSpeed * Time.deltaTime * Vector3.right;
+
+
+        if (isJumping)
+        {
+            rb.linearVelocity += Vector2.up * jumpForce;
+            isJumping = false;
+        }
     }
 }
